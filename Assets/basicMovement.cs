@@ -29,6 +29,8 @@ public class basicMovement : MonoBehaviour
     public void ZeroVelocity()
     {
         rbody.velocity = Vector3.zero;
+        player.xInput = 0;
+        player.zInput = 0;
     }
 
     public void SetVelocity(float _xVelocity, float _zVelocity, float _rotateSpeed)

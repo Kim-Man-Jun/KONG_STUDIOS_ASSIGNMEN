@@ -11,7 +11,7 @@ public class playerController : basicMovement
     public float runSpeed;
     public float rotateSpeed;
 
-    public static bool runOnOff = false;
+    public bool runOnOff = false;
 
     [Header("Player Attack")]
     public float attackPower;

@@ -19,8 +19,6 @@ public class PlayerIdleState : PlayerState
         player.ZeroVelocity();
 
         idleTime = 0;
-
-        Debug.Log("아이들 상태");
     }
 
     public override void Exit()
@@ -35,6 +33,10 @@ public class PlayerIdleState : PlayerState
         if(player.xInput != 0 || player.zInput != 0)
         {
             player.stateMachine.ChangeState(player.walkState);
+        }
+        else if((player.xInput != 0 || player.zInput != 0) && player.runOnOff == true)
+        {
+            player.stateMachine.ChangeState(player.runState);
         }
     }
 }

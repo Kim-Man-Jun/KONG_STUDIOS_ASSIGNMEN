@@ -14,7 +14,6 @@ public class PlayerWalkState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("움직임 실행");
     }
 
     public override void Exit()

@@ -51,5 +51,7 @@ public class VirtualPad : MonoBehaviour
 
         //플레이어 정지
         player.GetComponent<playerController>().zeroVelocity();
+
+        Debug.Log("실행");
     }
 }
