@@ -1811,7 +1811,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 830128831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2121588034}
+        m_TargetAssemblyTypeName: skillManager, Assembly-CSharp
+        m_MethodName: attackOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &830128831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1916,7 +1928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831551951}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.082480885, y: 0.000000016628363, z: -0.0000000013762115, w: 0.99659264}
+  m_LocalRotation: {x: 0.08248091, y: -0.00000001821087, z: 0.0000000015071846, w: 0.99659264}
   m_LocalPosition: {x: 50.12, y: 1.8575972, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2284,7 +2296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.082480885, y: 0.000000016628363, z: -0.0000000013762115, w: 0.99659264}
+  m_LocalRotation: {x: 0.08248091, y: -0.00000001821087, z: 0.0000000015071846, w: 0.99659264}
   m_LocalPosition: {x: 50.12, y: 1.8575972, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3333,8 +3345,12 @@ MonoBehaviour:
   rotateSpeed: 0.5
   runOnOff: 0
   playerHp: 0
+  attackOn: 0
   attackPower: 0
   attackCoolTime: 0
+  skill1Posion: 0
+  skill2Fire: 0
+  skill3Heal: 0
   cam: {fileID: 831551951}
 --- !u!136 &2091338763
 CapsuleCollider:

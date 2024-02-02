@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerController : basicMovement
@@ -14,8 +15,15 @@ public class playerController : basicMovement
 
     [Header("Player Battle")]
     public int playerHp;
+
+    public bool attackOn;
     public float attackPower;
     public float attackCoolTime;
+
+    [Header("Player Skill")]
+    public bool skill1Posion;
+    public bool skill2Fire;
+    public bool skill3Heal;
 
     [Header("Player Camera")]
     public GameObject cam;
@@ -25,6 +33,10 @@ public class playerController : basicMovement
     public PlayerIdleState idleState { get; private set; }
     public PlayerWalkState walkState { get; private set; }
     public PlayerRunState runState { get; private set; }
+    public PlayerAttackState attackState { get; private set; }
+    public PlayerSkill1State skill1State { get; private set; }
+    public PlayerSkill2State skill2State { get; private set; }
+    public PlayerSkill3State skill3State { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -36,6 +48,11 @@ public class playerController : basicMovement
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         walkState = new PlayerWalkState(this, stateMachine, "Walk");
         runState = new PlayerRunState(this, stateMachine, "Run");
+
+        attackState = new PlayerAttackState(this, stateMachine, "Attack");
+        skill1State = new PlayerSkill1State(this, stateMachine, "Skill1");
+        skill2State = new PlayerSkill2State(this, stateMachine, "Skill2");
+        skill3State = new PlayerSkill3State(this, stateMachine, "Skill3");
     }
 
     protected override void Start()
@@ -49,6 +66,26 @@ public class playerController : basicMovement
     {
         base.Update();
         stateMachine.currentState.Update();
+
+        if (attackOn == true)
+        {
+            stateMachine.ChangeState(attackState);
+        }
+
+        if (skill1Posion == true)
+        {
+            stateMachine.ChangeState(skill1State);
+        }
+
+        if (skill2Fire == true)
+        {
+            stateMachine.ChangeState(skill2State);
+        }
+
+        if (skill3Heal == true)
+        {
+            stateMachine.ChangeState(skill3State);
+        }
     }
 
     //basicMovement »ó¼Ó¿ë

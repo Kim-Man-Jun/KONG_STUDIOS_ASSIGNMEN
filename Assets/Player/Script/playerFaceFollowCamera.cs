@@ -14,7 +14,9 @@ public class playerFaceFollowCamera : MonoBehaviour
     private void Update()
     {
         if (target == null)
+        {
             return;
+        }
 
         Vector3 desiredPosition = target.position + offset;
 
