@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerState
 {
-    public PlayerAttackState(playerController player, PlayerStateMachine stateMachine, string animBoolName) 
+    public PlayerAttackState(playerController player, PlayerStateMachine stateMachine, string animBoolName)
         : base(player, stateMachine, animBoolName)
     {
 
@@ -25,5 +25,11 @@ public class PlayerAttackState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (triggerCalled == true && player.attackOn == true)
+        {
+            player.stateMachine.ChangeState(player.idleState);
+            player.attackOn = false;
+        }
     }
 }

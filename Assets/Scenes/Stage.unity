@@ -639,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1358580334}
   smoothSpeed: 0.1
-  offset: {x: 0, y: 0.1, z: 1.1}
+  offset: {x: 0, y: 0.1, z: 1.3}
 --- !u!1 &275241287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831551951}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08248091, y: -0.00000001821087, z: 0.0000000015071846, w: 0.99659264}
+  m_LocalRotation: {x: 0.082480885, y: 0.000000016628363, z: -0.0000000013762115, w: 0.99659264}
   m_LocalPosition: {x: 50.12, y: 1.8575972, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2169,7 +2169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 626.20013, y: -329.99945}
+  m_AnchoredPosition: {x: 626.2002, y: -329.9995}
   m_SizeDelta: {x: -919.1998, y: -660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919890214
@@ -2296,7 +2296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08248091, y: -0.00000001821087, z: 0.0000000015071846, w: 0.99659264}
+  m_LocalRotation: {x: 0.082480885, y: 0.000000016628363, z: -0.0000000013762115, w: 0.99659264}
   m_LocalPosition: {x: 50.12, y: 1.8575972, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3344,9 +3344,10 @@ MonoBehaviour:
   runSpeed: 4
   rotateSpeed: 0.5
   runOnOff: 0
-  playerHp: 0
+  playerMaxHp: 6
+  playerNowHp: 6
   attackOn: 0
-  attackPower: 0
+  attackPower: 10
   attackCoolTime: 0
   skill1Posion: 0
   skill2Fire: 0
@@ -3523,8 +3524,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7dffcee5b63054f8ade9d464842e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
   inputUI: {fileID: 1479830998}
+  HP1: {fileID: 795089755}
+  HP2: {fileID: 685065987}
+  HP3: {fileID: 1648780034}
+  HPZero: {fileID: -2123269886, guid: f17a0d2f36309704b9e5301919a69025, type: 3}
+  HPHalf: {fileID: 1024528377, guid: f17a0d2f36309704b9e5301919a69025, type: 3}
+  HPFull: {fileID: 1103879259, guid: f17a0d2f36309704b9e5301919a69025, type: 3}
 --- !u!114 &2121588034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3934,6 +3940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745839230400900983}
+  - component: {fileID: 4745839230400900984}
   m_Layer: 0
   m_Name: weapon_r
   m_TagString: Untagged
@@ -5028,6 +5035,27 @@ Transform:
   - {fileID: 6242650425512779135}
   m_Father: {fileID: 4144866891163340995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4745839230400900984
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473161319192221712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49270454, y: 1.7365748, z: 0.24867043}
+  m_Center: {x: -0.0032912048, y: 0.6423689, z: -0.0008810662}
 --- !u!4 &4851046389612718248
 Transform:
   m_ObjectHideFlags: 0

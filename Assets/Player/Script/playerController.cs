@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : basicMovement
 {
@@ -14,7 +16,8 @@ public class playerController : basicMovement
     public bool runOnOff = false;
 
     [Header("Player Battle")]
-    public int playerHp;
+    public int playerMaxHp;
+    public int playerNowHp;
 
     public bool attackOn;
     public float attackPower;
@@ -92,5 +95,27 @@ public class playerController : basicMovement
     public void zeroVelocity()
     {
         ZeroVelocity();
+    }
+
+    public void animationFinishTrigger()
+    {
+        stateMachine.currentState.AnimationFinishTrigger();
+    }
+
+    public void Damaged(int damage)
+    {
+        playerNowHp--;
+
+        if (playerNowHp <= 0)
+        {
+            StartCoroutine(playerDead());
+        }
+    }
+
+    IEnumerator playerDead()
+    {
+        //stateMachine.ChangeState(deadState);
+
+        yield return new WaitForSeconds(0.8f);
     }
 }
