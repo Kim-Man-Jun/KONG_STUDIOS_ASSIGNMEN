@@ -10,10 +10,10 @@ public class playerController : basicMovement
     public float walkSpeed;
     public float runSpeed;
     public float rotateSpeed;
-
     public bool runOnOff = false;
 
-    [Header("Player Attack")]
+    [Header("Player Battle")]
+    public int playerHp;
     public float attackPower;
     public float attackCoolTime;
 
