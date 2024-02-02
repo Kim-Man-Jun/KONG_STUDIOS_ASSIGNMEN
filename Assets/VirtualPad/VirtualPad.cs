@@ -25,6 +25,7 @@ public class VirtualPad : MonoBehaviour
     public void PadDrag()
     {
         Vector2 mousePosition = Input.mousePosition;
+
         Vector2 newTabPos = mousePosition - downPos;
 
         Vector2 axis = newTabPos.normalized;
@@ -51,7 +52,5 @@ public class VirtualPad : MonoBehaviour
 
         //플레이어 정지
         player.GetComponent<playerController>().zeroVelocity();
-
-        Debug.Log("실행");
     }
 }
