@@ -5,18 +5,20 @@ using UnityEngine;
 public class playerController : basicMovement
 {
     [Header("Player Move")]
-    [SerializeField] float walkSpeed;
-    [SerializeField] float runSpeed;
-    [SerializeField] float rotateSpeed;
+    public float xInput;
+    public float zInput;
+    public float walkSpeed;
+    public float runSpeed;
+    public float rotateSpeed;
 
     public static bool runOnOff = false;
 
     [Header("Player Attack")]
-    [SerializeField] float attackPower;
-    [SerializeField] float attackCoolTime;
+    public float attackPower;
+    public float attackCoolTime;
 
     [Header("Player Camera")]
-    [SerializeField] GameObject cam;
+    public GameObject cam;
 
     #region stateMachine
     public PlayerStateMachine stateMachine { get; private set; }
@@ -31,7 +33,9 @@ public class playerController : basicMovement
 
         stateMachine = new PlayerStateMachine();
 
-
+        idleState = new PlayerIdleState(this, stateMachine, "Idle");
+        walkState = new PlayerWalkState(this, stateMachine, "Walk");
+        runState = new PlayerRunState(this, stateMachine, "Run");
     }
 
     protected override void Start()
@@ -45,8 +49,11 @@ public class playerController : basicMovement
     {
         base.Update();
         stateMachine.currentState.Update();
+    }
 
-        //달리기 온오프 버튼
-        //if
+    //basicMovement 상속용
+    public void zeroVelocity()
+    {
+        ZeroVelocity();
     }
 }

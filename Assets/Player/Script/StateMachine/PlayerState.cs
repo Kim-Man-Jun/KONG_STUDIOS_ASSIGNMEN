@@ -9,9 +9,6 @@ public class PlayerState
 
     protected Rigidbody rbody;
 
-    protected float xInput;
-    protected float zInput;
-
     private string animBoolName;
 
     public bool triggerCalled;
@@ -32,8 +29,7 @@ public class PlayerState
 
     public virtual void Update()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-        zInput = Input.GetAxisRaw("Vertical");
+
     }
 
     public virtual void Exit()
