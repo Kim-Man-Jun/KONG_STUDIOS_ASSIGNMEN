@@ -37,10 +37,15 @@ public class PlayerWalkState : PlayerState
         Vector3 dir = camforwardRelative + camRightRelative;
 
         player.SetVelocity(dir.x * player.walkSpeed, dir.z * player.walkSpeed, player.rotateSpeed);
-        
+
         if (player.xInput == 0 && player.zInput == 0)
         {
             player.stateMachine.ChangeState(player.idleState);
+        }
+
+        if (player.runOnOff == true)
+        {
+            player.stateMachine.ChangeState(player.runState);
         }
     }
 }

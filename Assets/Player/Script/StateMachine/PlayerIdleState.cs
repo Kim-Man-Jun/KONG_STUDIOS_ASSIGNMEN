@@ -32,11 +32,14 @@ public class PlayerIdleState : PlayerState
 
         if(player.xInput != 0 || player.zInput != 0)
         {
-            player.stateMachine.ChangeState(player.walkState);
-        }
-        else if((player.xInput != 0 || player.zInput != 0) && player.runOnOff == true)
-        {
-            player.stateMachine.ChangeState(player.runState);
+            if (player.runOnOff == true)
+            {
+                player.stateMachine.ChangeState(player.runState);
+            }
+            else
+            {
+                player.stateMachine.ChangeState(player.walkState);
+            }
         }
     }
 }
