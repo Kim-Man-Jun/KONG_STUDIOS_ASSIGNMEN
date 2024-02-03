@@ -50,6 +50,9 @@ public class VirtualPad : MonoBehaviour
     {
         GetComponent<RectTransform>().localPosition = defPos;
 
+        player.GetComponent<playerController>().xInput = 0;
+        player.GetComponent<playerController>().zInput = 0;
+
         //플레이어 정지
         player.GetComponent<playerController>().zeroVelocity();
     }

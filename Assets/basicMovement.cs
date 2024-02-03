@@ -9,11 +9,14 @@ public class basicMovement : MonoBehaviour
 
     playerController player;
 
+    EnemyController enemy;
+
     protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody>();
         player = GetComponent<playerController>();
+        enemy = GetComponent<EnemyController>();
     }
 
     protected virtual void Start()
@@ -29,8 +32,6 @@ public class basicMovement : MonoBehaviour
     public void ZeroVelocity()
     {
         rbody.velocity = Vector3.zero;
-        player.xInput = 0;
-        player.zInput = 0;
     }
 
     public void SetVelocity(float _xVelocity, float _zVelocity, float _rotateSpeed)

@@ -1260,6 +1260,7 @@ GameObject:
   - component: {fileID: 136908644}
   - component: {fileID: 146692643}
   - component: {fileID: 146692644}
+  - component: {fileID: 146692645}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1782,8 +1783,26 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &146692645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146432818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fb27a2678b696449c1a4a24da65f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleTime: 3
+  moveSpeed: 4
+  movingTime: 3
+  rotateSpeed: 10
+  enemyMaxHp: 100
+  enemyNowHp: 100
 --- !u!4 &146695302
 Transform:
   m_ObjectHideFlags: 0
@@ -3860,8 +3879,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831551951}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0825767, y: -2.7297737e-15, z: 1.7030978e-16, w: 0.9965847}
-  m_LocalPosition: {x: 50.12, y: 1.8583572, z: 35.294556}
+  m_LocalRotation: {x: 0.08248083, y: 0.0000000176755, z: -0.0000000014628746, w: 0.99659264}
+  m_LocalPosition: {x: 50.12, y: 1.8575987, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4228,8 +4247,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0825767, y: -2.7297737e-15, z: 1.7030978e-16, w: 0.9965847}
-  m_LocalPosition: {x: 50.12, y: 1.8583572, z: 35.294556}
+  m_LocalRotation: {x: 0.08248083, y: 0.0000000176755, z: -0.0000000014628746, w: 0.99659264}
+  m_LocalPosition: {x: 50.12, y: 1.8575985, z: 35.294426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5641,7 +5660,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &2106803015
 GameObject:

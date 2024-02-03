@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
+    protected EnemyController enemy;
+
     public EnemyIdleState(EnemyController _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
         : base(_enemyBase, _stateMachine, _animBoolName)
     {
-
+        this.enemy = _enemyBase;
     }
 
     public override void Enter()
     {
         base.Enter();
+
+        enemy.zeroVelocity();
+        stateTimer = enemy.idleTime;
     }
 
     public override void Exit()
@@ -23,5 +28,10 @@ public class EnemyIdleState : EnemyState
     public override void Update()
     {
         base.Update();
+
+        if (stateTimer < 0)
+        {
+            stateMachine.ChangeState(enemy.walkState);
+        }
     }
 }

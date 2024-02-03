@@ -5,17 +5,18 @@ using UnityEngine;
 public class EnemyState
 {
     protected EnemyStateMachine stateMachine;
-    protected EnemyController enemyBase;
+    protected EnemyController enemy;
     protected Rigidbody rbody;
 
     protected bool triggerCalled;
+    //Idle 상태 중 대기하는 시간
     protected float stateTimer;
 
     private string animBoolName;
 
     public EnemyState(EnemyController _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
     {
-        this.enemyBase = _enemyBase;
+        this.enemy = _enemyBase;
         this.stateMachine = _stateMachine;
         this.animBoolName = _animBoolName;
     }
@@ -29,13 +30,13 @@ public class EnemyState
     public virtual void Enter()
     {
         triggerCalled = false;
-        rbody = enemyBase.rbody;
-        enemyBase.anim.SetBool(animBoolName, true);
+        rbody = enemy.rbody;
+        enemy.anim.SetBool(animBoolName, true);
     }
 
     public virtual void Exit()
     {
-        enemyBase.anim.SetBool(animBoolName, false);
+        enemy.anim.SetBool(animBoolName, false);
     }
 
     public virtual void AnimationFinishTrigger()
