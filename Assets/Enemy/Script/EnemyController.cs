@@ -16,6 +16,8 @@ public class EnemyController : basicMovement
     public int enemyMaxHp;
     public int enemyNowHp;
 
+    public bool playerEncount = false;
+
     #region stateMachine
     public EnemyStateMachine stateMachine { get; private set; }
     public EnemyIdleState idleState { get; private set; }
