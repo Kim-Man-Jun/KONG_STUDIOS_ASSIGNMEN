@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Skill1Action : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnParticleCollision(GameObject other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("µ¶ °É¸²");
+        }
     }
 }

@@ -24,8 +24,13 @@ public class playerController : basicMovement
 
     [Header("Player Skill")]
     public bool skill1Posion;
+    public GameObject skill1Obj;
+
     public bool skill2Fire;
+    public GameObject skill2Obj;
+
     public bool skill3Heal;
+    public GameObject skill3Obj;
 
     skillManager skillManager;
 
@@ -136,5 +141,35 @@ public class playerController : basicMovement
         yield return new WaitForSeconds(1.4f);
 
         //재도전 패널 등장
+    }
+
+    public void Skill1Instantiate()
+    {
+        Vector3 spawnPosition = transform.position + transform.forward * 3.0f;
+        Quaternion spawnRotation = transform.rotation;
+
+        GameObject posionTrap = Instantiate(skill1Obj, spawnPosition, spawnRotation);
+
+        Destroy(posionTrap, 5f);
+    }
+
+    public void Skill2Instantiate()
+    {
+        Vector3 spawnPosition = transform.position + transform.forward * 2.0f;
+        Quaternion spawnRotation = transform.rotation;
+
+        GameObject fireball = Instantiate(skill2Obj, spawnPosition, spawnRotation);
+
+        Destroy(fireball, 2f);
+    }
+
+    public void Skill3Instantiate()
+    {
+        Vector3 spawnPosition = transform.position + transform.forward * -0.05f;
+        Quaternion spawnRotation = transform.rotation;
+
+        GameObject heal = Instantiate(skill3Obj, spawnPosition, spawnRotation);
+
+        Destroy(heal, 2f);
     }
 }

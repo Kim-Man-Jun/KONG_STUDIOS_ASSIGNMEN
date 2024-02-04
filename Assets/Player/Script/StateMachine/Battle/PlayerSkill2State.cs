@@ -17,6 +17,7 @@ public class PlayerSkill2State : PlayerState
         player.ZeroVelocity();
 
         //파이어볼 생성
+        player.Skill2Instantiate();
     }
 
     public override void Exit()

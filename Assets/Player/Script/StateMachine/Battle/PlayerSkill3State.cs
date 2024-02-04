@@ -17,6 +17,7 @@ public class PlayerSkill3State : PlayerState
         player.ZeroVelocity();
 
         //플레이어 주변에 힐 생성
+        player.Skill3Instantiate();
     }
 
     public override void Exit()

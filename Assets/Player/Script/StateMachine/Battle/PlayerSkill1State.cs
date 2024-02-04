@@ -17,6 +17,7 @@ public class PlayerSkill1State : PlayerState
         player.ZeroVelocity();
 
         //독 장판 생성
+        player.Skill1Instantiate();
     }
 
     public override void Exit()
