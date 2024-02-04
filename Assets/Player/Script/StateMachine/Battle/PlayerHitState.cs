@@ -15,8 +15,6 @@ public class PlayerHitState : PlayerState
         base.Enter();
 
         player.ZeroVelocity();
-
-        Debug.Log("½ÇÇà");
     }
 
     public override void Exit()

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject inputUI;
 
+    [Header("Player HP")]
     public GameObject HP1;
     public GameObject HP2;
     public GameObject HP3;
@@ -15,16 +16,23 @@ public class GameManager : MonoBehaviour
     public Sprite HPHalf;
     public Sprite HPFull;
 
+    [Header("Enemy Hp")]
+    public GameObject enemyHPCam;
+    Slider enemyHPBarFill;
+
     playerController player;
+    EnemyController enemy;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
+        enemyHPBarFill = enemyHPCam.transform.GetChild(0).gameObject.GetComponent<Slider>();
     }
 
     private void Update()
     {
-        //HP 관리
+        //플레이어 HP 관리
         switch (player.playerNowHp)
         {
             case 0:
@@ -54,6 +62,17 @@ public class GameManager : MonoBehaviour
             case 6:
                 HPNow(HPFull, HPFull, HPFull);
                 break;
+        }
+
+        //적 HP 정면 보게 만들기
+        enemyHPCam.transform.LookAt(Camera.main.transform);
+
+        enemyHPBarFill.value = enemy.enemyNowHp;
+
+        //적 HP가 0이 될 경우 Off
+        if (enemy.enemyNowHp <= 0)
+        {
+            enemyHPCam.SetActive(false);
         }
     }
 

@@ -38,6 +38,8 @@ public class EnemyRushState : EnemyState
     {
         base.Update();
 
+        enemy.transform.LookAt(playerPos);
+
         rushReadyTime -= Time.deltaTime;
 
         if (rushReadyTime < 0)

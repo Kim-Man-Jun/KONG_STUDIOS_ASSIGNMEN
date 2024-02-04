@@ -21,7 +21,6 @@ public class playerController : basicMovement
 
     public bool attackOn;
     public float attackPower;
-    public float attackCoolTime;
 
     [Header("Player Skill")]
     public bool skill1Posion;
