@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackDmg : MonoBehaviour
+public class EnemyAttackDmg : MonoBehaviour
 {
     playerController player;
 

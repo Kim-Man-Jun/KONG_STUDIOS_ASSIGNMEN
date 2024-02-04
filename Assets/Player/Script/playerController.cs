@@ -36,10 +36,15 @@ public class playerController : basicMovement
     public PlayerIdleState idleState { get; private set; }
     public PlayerWalkState walkState { get; private set; }
     public PlayerRunState runState { get; private set; }
+
     public PlayerAttackState attackState { get; private set; }
     public PlayerSkill1State skill1State { get; private set; }
     public PlayerSkill2State skill2State { get; private set; }
     public PlayerSkill3State skill3State { get; private set; }
+
+    public PlayerHitState hitState { get; private set; }
+    public PlayerVictoryState victoryState { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -56,6 +61,10 @@ public class playerController : basicMovement
         skill1State = new PlayerSkill1State(this, stateMachine, "Skill1");
         skill2State = new PlayerSkill2State(this, stateMachine, "Skill2");
         skill3State = new PlayerSkill3State(this, stateMachine, "Skill3");
+
+        hitState = new PlayerHitState(this, stateMachine, "Hit");
+        victoryState = new PlayerVictoryState(this, stateMachine, "Victory");
+        deadState = new PlayerDeadState(this, stateMachine, "Dead");
     }
 
     protected override void Start()
@@ -104,9 +113,14 @@ public class playerController : basicMovement
 
     public void Damaged(int damage)
     {
-        playerNowHp--;
+        if (playerNowHp > 1)
+        {
+            playerNowHp--;
 
-        if (playerNowHp <= 0)
+            stateMachine.ChangeState(hitState);
+        }
+
+        else if (playerNowHp <= 1)
         {
             StartCoroutine(playerDead());
         }
@@ -114,8 +128,10 @@ public class playerController : basicMovement
 
     IEnumerator playerDead()
     {
-        //stateMachine.ChangeState(deadState);
+        stateMachine.ChangeState(deadState);
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.4f);
+
+        //재도전 패널 등장
     }
 }

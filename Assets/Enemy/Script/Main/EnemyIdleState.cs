@@ -33,5 +33,13 @@ public class EnemyIdleState : EnemyState
         {
             stateMachine.ChangeState(enemy.walkState);
         }
+
+        float attackDisToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.transform.position);
+
+        if (attackDisToPlayer < 3f)
+        {
+            enemy.transform.LookAt(enemy.player.transform.position);
+            stateMachine.ChangeState(enemy.attackState);
+        }
     }
 }

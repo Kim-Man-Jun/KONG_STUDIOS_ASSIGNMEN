@@ -73,6 +73,21 @@ public class EnemyController : basicMovement
     public void Damaged(int damage)
     {
         enemyNowHp -= damage;
+        stateMachine.ChangeState(hitState);
+
+        if (enemyNowHp <= 0)
+        {
+            StartCoroutine(enemyDead());
+        }
+    }
+
+    IEnumerator enemyDead()
+    {
+        stateMachine.ChangeState(deadState);
+
+        yield return new WaitForSeconds(2f);
+
+        //승리 패널 등장
     }
 
     public void EnemyDie()

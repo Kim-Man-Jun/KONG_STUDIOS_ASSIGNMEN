@@ -50,11 +50,11 @@ public class EnemyRushState : EnemyState
             float distToPlayer = Vector3.Distance(enemy.transform.position, playerPos.position);
             float attackDisToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.transform.position);
 
-            if (distToPlayer < 2.8f)
+            if (distToPlayer < 3f)
             {
                 stateMachine.ChangeState(enemy.idleState);
 
-                if (attackDisToPlayer < 2.8f)
+                if (attackDisToPlayer < 3f)
                 {
                     enemy.transform.LookAt(enemy.player.transform.position);
                     stateMachine.ChangeState(enemy.attackState);
