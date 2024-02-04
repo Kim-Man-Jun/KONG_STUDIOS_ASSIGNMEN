@@ -84,7 +84,7 @@ public class skillManager : MonoBehaviour
 
     public void posionSkill()
     {
-        if (player.skill1Posion == false)
+        if (player.skill1Posion == false && skill1CooltimeOn == false)
         {
             player.skill1Posion = true;
 
@@ -95,7 +95,7 @@ public class skillManager : MonoBehaviour
 
     public void fireSkill()
     {
-        if (player.skill2Fire == false)
+        if (player.skill2Fire == false && skill2CooltimeOn == false)
         {
             player.skill2Fire = true;
 
@@ -106,7 +106,7 @@ public class skillManager : MonoBehaviour
 
     public void healSkill()
     {
-        if (player.skill3Heal == false)
+        if (player.skill3Heal == false && skill3CooltimeOn == false)
         {
             player.skill3Heal = true;
 

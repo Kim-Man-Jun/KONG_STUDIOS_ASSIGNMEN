@@ -19606,7 +19606,7 @@ Transform:
   m_GameObject: {fileID: 6144081954650167613}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 6.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29476,7 +29476,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 1.0735e-41, w: -9.146041e-24}
+  m_BoundingSphereOverride: {x: -1, y: 8, z: 7, w: -9}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -34390,7 +34390,7 @@ GameObject:
   - component: {fileID: 8176230078092200170}
   - component: {fileID: 8636462576248347671}
   m_Layer: 0
-  m_Name: Meteors AOE
+  m_Name: FireBallProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34404,7 +34404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7957833072274404953}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34417,7 +34417,7 @@ Transform:
   - {fileID: 6059681292046567560}
   - {fileID: 6281197938758783078}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!198 &8176230078092200170
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -34672,7 +34672,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 1.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
