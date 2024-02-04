@@ -5,6 +5,12 @@ using UnityEngine;
 public class Skill2Action : MonoBehaviour
 {
     public GameObject ps;
+    EnemyController enemy;
+
+    private void Start()
+    {
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -21,6 +27,8 @@ public class Skill2Action : MonoBehaviour
                 GameObject boomEffect = Instantiate(ps, pos, Quaternion.identity);
                 Destroy(boomEffect, 0.5f);
             }
+
+            enemy.Damaged(3);
         }
     }
 }
