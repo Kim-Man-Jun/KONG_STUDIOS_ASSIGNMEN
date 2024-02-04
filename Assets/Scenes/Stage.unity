@@ -297,7 +297,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 12.87285
+  m_Radius: 14.512358
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &80490308
 MonoBehaviour:
@@ -1786,7 +1786,7 @@ Transform:
   m_GameObject: {fileID: 146432818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.07356, y: -0.0000038146973, z: 37.659546}
+  m_LocalPosition: {x: 34.76, y: -0.0000038146973, z: 37.659546}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1851,7 +1851,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &146692645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,7 +1870,9 @@ MonoBehaviour:
   rotateSpeed: 10
   enemyMaxHp: 100
   enemyNowHp: 100
+  rushSpeed: 20
   playerEncount: 0
+  player: {fileID: 0}
 --- !u!4 &146695302
 Transform:
   m_ObjectHideFlags: 0
@@ -5608,6 +5610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078454031}
   - component: {fileID: 2078454032}
+  - component: {fileID: 2078454033}
   m_Layer: 0
   m_Name: EnemyAttack
   m_TagString: EnemyAttack
@@ -5645,7 +5648,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 2
@@ -5653,6 +5656,18 @@ CapsuleCollider:
   m_Height: 1.4661465
   m_Direction: 2
   m_Center: {x: 0.025841713, y: 0.7886436, z: 0.8362303}
+--- !u!114 &2078454033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078454030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c7e3246302da44fa6832704ccbb944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2091338762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5729,7 +5744,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &2106803015
 GameObject:
   m_ObjectHideFlags: 0

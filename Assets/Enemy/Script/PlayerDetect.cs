@@ -16,7 +16,6 @@ public class PlayerDetect : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             enemy.playerEncount = true;
-            Debug.Log(enemy.playerEncount);
         }
     }
 }

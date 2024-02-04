@@ -7,7 +7,7 @@ public class EnemyAttackState : EnemyState
     public EnemyAttackState(EnemyController _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
         : base(_enemyBase, _stateMachine, _animBoolName)
     {
-
+        this.enemy = _enemyBase;
     }
 
     public override void Enter()
@@ -23,5 +23,10 @@ public class EnemyAttackState : EnemyState
     public override void Update()
     {
         base.Update();
+
+        if (triggerCalled == true)
+        {
+            enemy.stateMachine.ChangeState(enemy.idleState);
+        }
     }
 }

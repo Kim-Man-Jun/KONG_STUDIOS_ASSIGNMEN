@@ -15,8 +15,11 @@ public class EnemyController : basicMovement
     [Header("Enemy Battle")]
     public int enemyMaxHp;
     public int enemyNowHp;
+    public int rushSpeed;
 
     public bool playerEncount = false;
+
+    public GameObject player;
 
     #region stateMachine
     public EnemyStateMachine stateMachine { get; private set; }
@@ -26,7 +29,6 @@ public class EnemyController : basicMovement
     public EnemyHitState hitState { get; private set; }
     public EnemyVictoryState victoryState { get; private set; }
     public EnemyDeadState deadState { get; private set; }
-
     public EnemyRushState rushState { get; private set; }
     #endregion
 
@@ -44,6 +46,8 @@ public class EnemyController : basicMovement
         victoryState = new EnemyVictoryState(this, stateMachine, "Victory");
         deadState = new EnemyDeadState(this, stateMachine, "Dead");
         rushState = new EnemyRushState(this, stateMachine, "Rush");
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     protected override void Start()
@@ -58,6 +62,12 @@ public class EnemyController : basicMovement
         base.Update();
 
         stateMachine.currentState.Update();
+
+        if (playerEncount == true)
+        {
+            transform.LookAt(player.transform);
+            stateMachine.ChangeState(rushState);
+        }
     }
 
     public void Damaged(int damage)
