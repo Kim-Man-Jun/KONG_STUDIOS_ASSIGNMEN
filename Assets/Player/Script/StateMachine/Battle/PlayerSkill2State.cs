@@ -25,5 +25,10 @@ public class PlayerSkill2State : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (triggerCalled)
+        {
+            player.stateMachine.ChangeState(player.idleState);
+        }
     }
 }

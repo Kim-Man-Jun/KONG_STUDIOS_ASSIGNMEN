@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSkill1State : PlayerState
 {
-    public PlayerSkill1State(playerController player, PlayerStateMachine stateMachine, string animBoolName) 
+    public PlayerSkill1State(playerController player, PlayerStateMachine stateMachine, string animBoolName)
         : base(player, stateMachine, animBoolName)
     {
 
@@ -25,5 +25,10 @@ public class PlayerSkill1State : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (triggerCalled)
+        {
+            player.stateMachine.ChangeState(player.idleState);
+        }
     }
 }

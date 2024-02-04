@@ -27,6 +27,8 @@ public class playerController : basicMovement
     public bool skill2Fire;
     public bool skill3Heal;
 
+    skillManager skillManager;
+
     [Header("Player Camera")]
     public GameObject cam;
 
@@ -64,6 +66,8 @@ public class playerController : basicMovement
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         victoryState = new PlayerVictoryState(this, stateMachine, "Victory");
         deadState = new PlayerDeadState(this, stateMachine, "Dead");
+
+        skillManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<skillManager>();
     }
 
     protected override void Start()
@@ -83,17 +87,17 @@ public class playerController : basicMovement
             stateMachine.ChangeState(attackState);
         }
 
-        if (skill1Posion == true)
+        if (skill1Posion == true && skillManager.skill1CooltimeOn == true)
         {
             stateMachine.ChangeState(skill1State);
         }
 
-        if (skill2Fire == true)
+        if (skill2Fire == true && skillManager.skill2CooltimeOn == true)
         {
             stateMachine.ChangeState(skill2State);
         }
 
-        if (skill3Heal == true)
+        if (skill3Heal == true && skillManager.skill3CooltimeOn == true)
         {
             stateMachine.ChangeState(skill3State);
         }
@@ -112,10 +116,10 @@ public class playerController : basicMovement
 
     public void Damaged(int damage)
     {
+        playerNowHp--;
+
         if (playerNowHp > 1)
         {
-            playerNowHp--;
-
             stateMachine.ChangeState(hitState);
         }
 

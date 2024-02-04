@@ -1868,8 +1868,8 @@ MonoBehaviour:
   moveSpeed: 4
   movingTime: 3
   rotateSpeed: 10
-  enemyMaxHp: 100
-  enemyNowHp: 100
+  enemyMaxHp: 150
+  enemyNowHp: 150
   rushSpeed: 30
   playerEncount: 0
   player: {fileID: 0}
@@ -2549,7 +2549,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.217
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.217
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.217
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -5123,8 +5123,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 4.2299, y: 1.0589}
+  m_AnchoredPosition: {x: 0, y: 1.8809}
+  m_SizeDelta: {x: 5.2121, y: 0.5823}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503918194
 MonoBehaviour:
@@ -5335,8 +5335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.23}
-  m_SizeDelta: {x: 0.8913, y: -0.5803}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622198475
 MonoBehaviour:
@@ -5383,9 +5383,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 150
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 150
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5957,7 +5957,7 @@ GameObject:
   - component: {fileID: 2121588034}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6009,6 +6009,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8396db1514c7a2f47987d0491d44c93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill1CooltimeOn: 0
+  skill1Cooltime: 10
+  skill1CooltimeDelay: {fileID: 1065608709}
+  skill2CooltimeOn: 0
+  skill2Cooltime: 8
+  skill2CooltimeDelay: {fileID: 235925197}
+  skill3CooltimeOn: 0
+  skill3Cooltime: 14
+  skill3CooltimeDelay: {fileID: 477504366}
 --- !u!1 &79714103550909216
 GameObject:
   m_ObjectHideFlags: 0
