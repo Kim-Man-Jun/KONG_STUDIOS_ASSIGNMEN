@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
         //플레이어가 이길 경우
         if (enemy.enemyNowHp <= 0)
         {
-            BGMManager.instance.VictorySound();
             enemyHPCam.SetActive(false);
             resultWindow.SetActive(true);
         }
@@ -97,7 +96,6 @@ public class GameManager : MonoBehaviour
         //플레이어가 질 경우
         if (player.playerNowHp <= 0)
         {
-            BGMManager.instance.DefeatSound();
             resultWindow.SetActive(true);
             resultWindow.transform.GetChild(0).GetComponent<TMP_Text>().text = "Defeat";
         }

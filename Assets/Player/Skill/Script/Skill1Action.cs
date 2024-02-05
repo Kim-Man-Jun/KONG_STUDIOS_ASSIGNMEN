@@ -19,6 +19,8 @@ public class Skill1Action : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
         skillManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<skillManager>();
+
+        SFXManager.instance.Skill1Sound();
     }
 
     private void OnParticleCollision(GameObject other)

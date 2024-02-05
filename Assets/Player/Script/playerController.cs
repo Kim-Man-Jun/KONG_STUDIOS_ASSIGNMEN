@@ -32,6 +32,8 @@ public class playerController : basicMovement
     [Header("Player Camera")]
     public GameObject cam;
 
+    EnemyController enemy;
+
     #region stateMachine
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -68,6 +70,7 @@ public class playerController : basicMovement
         deadState = new PlayerDeadState(this, stateMachine, "Dead");
 
         skillManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<skillManager>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
     }
 
     protected override void Start()
@@ -84,7 +87,6 @@ public class playerController : basicMovement
 
         if (attackOn == true)
         {
-            SFXManager.instance.AttackMiss();
             stateMachine.ChangeState(attackState);
         }
 
@@ -101,6 +103,11 @@ public class playerController : basicMovement
         if (skill3Heal == true && skillManager.skill3CooltimeOn == true)
         {
             stateMachine.ChangeState(skill3State);
+        }
+
+        if (enemy.GetComponent<EnemyController>().enemyNowHp <= 0)
+        {
+            stateMachine.ChangeState(victoryState);
         }
     }
 
@@ -128,6 +135,10 @@ public class playerController : basicMovement
         else if (playerNowHp < 1)
         {
             SFXManager.instance.PlayerHit();
+
+            BGMManager.instance.musicStop();
+            BGMManager.instance.DefeatSound();
+
             StartCoroutine(playerDead());
         }
     }

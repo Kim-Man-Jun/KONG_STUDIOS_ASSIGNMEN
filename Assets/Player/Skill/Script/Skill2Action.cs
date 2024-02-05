@@ -11,6 +11,8 @@ public class Skill2Action : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
         skillManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<skillManager>();
+
+        SFXManager.instance.Skill2Sound();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -34,6 +36,8 @@ public class Skill2Action : MonoBehaviour
             for (int i = 0; i < collisionNum; i++)
             {
                 Vector3 pos = collisionEvents[i].intersection;
+
+                SFXManager.instance.Skill2Hit();
             }
 
             Invoke("ReturnSkill2EffectPool", 0.5f);

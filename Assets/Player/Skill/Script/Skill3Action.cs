@@ -18,6 +18,8 @@ public class Skill3Action : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
 
+        SFXManager.instance.Skill3Sound();
+
         healCoroutine = StartCoroutine(playerHeal());
 
         StartCoroutine(stopHealCoroutine());

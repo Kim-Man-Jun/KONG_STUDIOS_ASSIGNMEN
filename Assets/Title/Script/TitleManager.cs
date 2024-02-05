@@ -21,8 +21,6 @@ public class TitleManager : MonoBehaviour
         SettingWindow.SetActive(false);
         BGMVolume = SettingWindow.transform.GetChild(2).GetComponent<Slider>();
         SFXVolume = SettingWindow.transform.GetChild(4).GetComponent<Slider>();
-
-        BGMManager.instance.StartSound();
     }
 
     private void Update()

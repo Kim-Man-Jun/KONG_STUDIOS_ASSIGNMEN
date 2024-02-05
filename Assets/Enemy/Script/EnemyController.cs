@@ -82,7 +82,9 @@ public class EnemyController : basicMovement
 
         if (enemyNowHp <= 0)
         {
-            SFXManager.instance.AttackHit();
+            BGMManager.instance.musicStop();
+            BGMManager.instance.VictorySound();
+
             StartCoroutine(enemyDead());
         }
     }

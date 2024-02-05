@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class BGMManager : MonoBehaviour
 {
     public static BGMManager instance;
@@ -30,6 +31,8 @@ public class BGMManager : MonoBehaviour
     private void Start()
     {
         Audio = GetComponent<AudioSource>();
+
+        StartSound();
     }
 
     public void StartSound()
