@@ -24,13 +24,8 @@ public class playerController : basicMovement
 
     [Header("Player Skill")]
     public bool skill1Posion;
-    public GameObject skill1Obj;
-
     public bool skill2Fire;
-    public GameObject skill2Obj;
-
     public bool skill3Heal;
-    public GameObject skill3Obj;
 
     skillManager skillManager;
 
@@ -143,33 +138,83 @@ public class playerController : basicMovement
         //재도전 패널 등장
     }
 
+    public void AttackEffectInstantiate()
+    {
+        GameObject attack = skillManager.GetSkillPool(skillManager.attackObj, skillManager.attackPool);
+        Vector3 spawnPosition = transform.position + new Vector3(0, 1f, 0.5f);
+        Quaternion spawnRotation = transform.rotation;
+        attack.transform.position = spawnPosition;
+        attack.transform.rotation = spawnRotation;
+        attack.SetActive(true);
+
+        Invoke("ReturnAttackPool", 0.5f);
+    }
+
+    void ReturnAttackPool()
+    {
+        GameObject attack = GameObject.FindGameObjectWithTag("Attack");
+        skillManager.ReturnSkillPool(attack, skillManager.attackPool);
+    }
+
     public void Skill1Instantiate()
     {
+        GameObject skill1 = skillManager.GetSkillPool(skillManager.skill1Obj, skillManager.skill1Pool);
         Vector3 spawnPosition = transform.position + transform.forward * 3.0f;
         Quaternion spawnRotation = transform.rotation;
+        skill1.transform.position = spawnPosition;
+        skill1.transform.rotation = spawnRotation;
+        skill1.SetActive(true);
 
-        GameObject posionTrap = Instantiate(skill1Obj, spawnPosition, spawnRotation);
-
-        Destroy(posionTrap, 5f);
+        Invoke("ReturnSkill1Pool", 5f);
     }
+
+    void ReturnSkill1Pool()
+    {
+        GameObject skill = GameObject.FindGameObjectWithTag("Skill1");
+        skillManager.ReturnSkillPool(skill, skillManager.skill1Pool);
+    }
+
 
     public void Skill2Instantiate()
     {
-        Vector3 spawnPosition = transform.position + transform.forward * 2.0f;
+        GameObject skill2 = skillManager.GetSkillPool(skillManager.skill2Obj, skillManager.skill2Pool);
+        Vector3 spawnPosition = transform.position + transform.forward * 1.0f;
         Quaternion spawnRotation = transform.rotation;
+        skill2.transform.position = spawnPosition;
+        skill2.transform.rotation = spawnRotation;
+        skill2.SetActive(true);
 
-        GameObject fireball = Instantiate(skill2Obj, spawnPosition, spawnRotation);
+        Invoke("ReturnSkill2Pool", 3f);
+    }
 
-        Destroy(fireball, 2f);
+    void ReturnSkill2Pool()
+    {
+        GameObject skill2 = GameObject.FindGameObjectWithTag("Skill2");
+        skillManager.ReturnSkillPool(skill2, skillManager.skill2Pool);
     }
 
     public void Skill3Instantiate()
     {
+        GameObject skill3 = skillManager.GetSkillPool(skillManager.skill3Obj, skillManager.skill3Pool);
         Vector3 spawnPosition = transform.position + transform.forward * -0.05f;
         Quaternion spawnRotation = transform.rotation;
+        skill3.transform.position = spawnPosition;
+        skill3.transform.rotation = spawnRotation;
+        skill3.SetActive(true);
 
-        GameObject heal = Instantiate(skill3Obj, spawnPosition, spawnRotation);
+        Invoke("ReturnSkill3Pool", 2f);
 
-        Destroy(heal, 2f);
+        //Vector3 spawnPosition = transform.position + transform.forward * -0.05f;
+        //Quaternion spawnRotation = transform.rotation;
+
+        //GameObject heal = Instantiate(skill3Obj, spawnPosition, spawnRotation);
+
+        //Destroy(heal, 2f);
+    }
+
+    void ReturnSkill3Pool()
+    {
+        GameObject skill3 = GameObject.FindGameObjectWithTag("Skill3");
+        skillManager.ReturnSkillPool(skill3, skillManager.skill3Pool);
     }
 }

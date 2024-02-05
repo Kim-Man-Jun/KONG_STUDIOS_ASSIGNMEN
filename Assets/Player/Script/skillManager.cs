@@ -7,6 +7,28 @@ public class skillManager : MonoBehaviour
 {
     playerController player;
 
+    [Header("Skill Object Pool")]
+    public GameObject SkillObjectPool;
+
+    public GameObject attackObj;
+    public GameObject attackEffect;
+    public GameObject skill1Obj;
+    public GameObject skill1Effect;
+    public GameObject skill2Obj;
+    public GameObject skill2Effect;
+    public GameObject skill3Obj;
+
+    public int poolSize = 20;
+
+    [Header("Skill Ojbect Pools")]
+    public List<GameObject> attackPool = new List<GameObject>();
+    public List<GameObject> attackEffectPool = new List<GameObject>();
+    public List<GameObject> skill1Pool = new List<GameObject>();
+    public List<GameObject> skill1EffectPool = new List<GameObject>();
+    public List<GameObject> skill2Pool = new List<GameObject>();
+    public List<GameObject> skill2EffectPool = new List<GameObject>();
+    public List<GameObject> skill3Pool = new List<GameObject>();
+
     [Header("Skill CoolTime")]
     public bool skill1CooltimeOn = false;
     public float skill1Cooltime = 10;
@@ -23,6 +45,47 @@ public class skillManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+
+        InitializePool(attackObj, attackPool);
+        InitializePool(attackEffect, attackEffectPool);
+        InitializePool(skill1Obj, skill1Pool);
+        InitializePool(skill1Effect, skill1EffectPool);
+        InitializePool(skill2Obj, skill2Pool);
+        InitializePool(skill2Effect, skill2EffectPool);
+        InitializePool(skill3Obj, skill3Pool);
+    }
+
+    void InitializePool(GameObject obj, List<GameObject> pool)
+    {
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject skill = Instantiate(obj, transform.position, Quaternion.identity, SkillObjectPool.transform);
+            skill.SetActive(false);
+            pool.Add(skill);
+        }
+    }
+
+    public GameObject GetSkillPool(GameObject obj, List<GameObject> pool)
+    {
+        foreach (GameObject skill in pool)
+        {
+            if (!skill.activeInHierarchy)
+            {
+                return skill;
+            }
+        }
+
+        // Pool에 재사용 가능한 스킬 오브젝트가 없는 경우 추가로 생성
+        GameObject newSkill = Instantiate(obj, transform.position, Quaternion.identity);
+        newSkill.SetActive(false);
+        pool.Add(newSkill);
+
+        return newSkill;
+    }
+
+    public void ReturnSkillPool(GameObject obj, List<GameObject> pool)
+    {
+        obj.SetActive(false);
     }
 
     private void Update()

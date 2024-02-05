@@ -8,6 +8,13 @@ TagManager:
   - Enemy
   - EnemyAttack
   - GameManager
+  - Attack
+  - Skill1
+  - Skill2
+  - Skill3
+  - Skill1Effect
+  - Skill2Effect
+  - AttackEffect
   layers:
   - Default
   - TransparentFX
@@ -16,9 +23,9 @@ TagManager:
   - Water
   - UI
   - Environment
-  - 
-  - 
-  - 
+  - Particle
+  - Player
+  - Enemy
   - 
   - 
   - 
