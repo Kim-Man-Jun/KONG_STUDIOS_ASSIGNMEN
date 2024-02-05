@@ -21,8 +21,10 @@ public class PlayerAttackDmg : MonoBehaviour
         {
             enemy.Damaged((int)player.attackPower);
 
+            Vector3 hitPosition = other.ClosestPoint(transform.position);
+
             GameObject attackEffect = skillManager.GetSkillPool(skillManager.attackEffect, skillManager.attackEffectPool);
-            attackEffect.transform.position = other.transform.position;
+            attackEffect.transform.position = hitPosition;
             attackEffect.SetActive(true);
             Invoke("ReturnAttackEffectPool", 0.2f);
         }
