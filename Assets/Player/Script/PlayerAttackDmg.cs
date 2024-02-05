@@ -19,6 +19,8 @@ public class PlayerAttackDmg : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            SFXManager.instance.AttackHit();
+
             enemy.Damaged((int)player.attackPower);
 
             Vector3 hitPosition = other.ClosestPoint(transform.position);

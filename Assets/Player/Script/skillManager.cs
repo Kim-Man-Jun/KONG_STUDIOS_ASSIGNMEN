@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class skillManager : MonoBehaviour
 {
     playerController player;
+    EnemyController enemy;
 
     [Header("Skill Object Pool")]
     public GameObject SkillObjectPool;
@@ -45,6 +46,7 @@ public class skillManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
 
         InitializePool(attackObj, attackPool);
         InitializePool(attackEffect, attackEffectPool);

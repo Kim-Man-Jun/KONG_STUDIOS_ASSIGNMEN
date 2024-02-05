@@ -84,6 +84,7 @@ public class playerController : basicMovement
 
         if (attackOn == true)
         {
+            SFXManager.instance.AttackMiss();
             stateMachine.ChangeState(attackState);
         }
 
@@ -118,13 +119,15 @@ public class playerController : basicMovement
     {
         playerNowHp--;
 
-        if (playerNowHp > 1)
+        if (playerNowHp >= 1)
         {
+            SFXManager.instance.PlayerHit();
             stateMachine.ChangeState(hitState);
         }
 
-        else if (playerNowHp <= 1)
+        else if (playerNowHp < 1)
         {
+            SFXManager.instance.PlayerHit();
             StartCoroutine(playerDead());
         }
     }
@@ -134,8 +137,6 @@ public class playerController : basicMovement
         stateMachine.ChangeState(deadState);
 
         yield return new WaitForSeconds(1.4f);
-
-        //재도전 패널 등장
     }
 
     public void AttackEffectInstantiate()

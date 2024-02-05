@@ -68,6 +68,11 @@ public class EnemyController : basicMovement
             transform.LookAt(player.transform);
             stateMachine.ChangeState(rushState);
         }
+
+        if (player.GetComponent<playerController>().playerNowHp <= 0)
+        {
+            stateMachine.ChangeState(victoryState);
+        }
     }
 
     public void Damaged(int damage)
@@ -77,6 +82,7 @@ public class EnemyController : basicMovement
 
         if (enemyNowHp <= 0)
         {
+            SFXManager.instance.AttackHit();
             StartCoroutine(enemyDead());
         }
     }
@@ -86,8 +92,6 @@ public class EnemyController : basicMovement
         stateMachine.ChangeState(deadState);
 
         yield return new WaitForSeconds(2f);
-
-        //승리 패널 등장
     }
 
     public void EnemyDie()
